@@ -1,4 +1,9 @@
 # Localized
+
+![Platforms](https://img.shields.io/badge/platforms-ios%20%7C%20osx%20%7C%20watchos%20%7C%20tvos-lightgrey.svg)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](#carthage)
+![Swift version](https://img.shields.io/badge/swift-2.2-orange.svg)
+
 Localized is a simple framework that improves i18n and localization in Swift iOS apps - providing cleaner syntax and in-app language switching. This framework is modified from [marmelroy](https://github.com/marmelroy)'s [Localize-Swift](https://github.com/marmelroy/Localize-Swift).
 
 ## Features
