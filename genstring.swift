@@ -40,7 +40,7 @@ class GenStrings {
                 print("No localizable strings found!")
             } else {
                 print("------Localizable Strings------")
-                sortedStrings.forEach{ print("\"\($0)\"") }
+                print(processedStrings)
             }
         } catch {
             throw error
