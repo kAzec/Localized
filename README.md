@@ -19,31 +19,31 @@ Import Localized at the top of each Swift file that will contain localized text.
 
 Add .localized() following any String object you want translated:
 
-```
+```swift
 textLabel.text = "Hello World".localized()
 ```
 
 To get an array of available localizations:
 
-```
+```swift
 Localization.availableLanguages()
 ```
 
 To change the current language:
 
-```
+```swift
 Localization.setCurrentLanguage("fr")
 ```
 
 To update the UI in the viewcontroller where a language change can take place, observe LCLLanguageChangeNotification :
 
-```
+```swift
 NSNotificationCenter.defaultCenter().addObserver(self, selector: "setText", name: LCLLanguageDidChangeNotification, object: nil)
 ```
 
 To reset back to the default app language:
 
-```
+```swift
 Localization.resetCurrentLanguageToDefault()
 ```
 
