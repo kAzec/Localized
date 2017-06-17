@@ -21,13 +21,11 @@ let LCLBaseBundle = "Base"
 public let LCLLanguageDidChangeNotification = "LCLLanguageDidChangeNotification"
 
 public final class Localization {
-    /**
-     List available languages.
-     
-     - parameter excludingBase: should Base be excluded from the result.
-     
-     - returns: Available language codes.
-     */
+    
+    /// List all available languages.
+    ///
+    /// - Parameter excludingBase: Determine if "Base" wll be excluded from the result.
+    /// - Returns: An array of all available language codes.
     public class func availableLanguages(excludingBase: Bool = false) -> [String] {
         var availableLanguages = Bundle.main.localizations
         // If excludeBase = true, don't include "Base" in available languages
@@ -38,11 +36,9 @@ public final class Localization {
         return availableLanguages
     }
     
-    /**
-     Get current language.
-     
-     - returns: App's current language code.
-     */
+    /// Get current language.
+    ///
+    /// - Returns: App's current language code.
     public class func currentLanguage() -> String {
         if let currentLanguage = UserDefaults.standard.object(forKey: LCLCurrentLanguageKey) as? String {
             return currentLanguage
@@ -51,11 +47,9 @@ public final class Localization {
         return defaultLanguage()
     }
     
-    /**
-     Set the current language.
-     
-     - parameter language: New language code.
-     */
+    /// Set the current language.
+    ///
+    /// - Parameter language: New language code.
     public class func setCurrentLanguage(_ language: String) {
         let selectedLanguage = availableLanguages().contains(language) ? language : defaultLanguage()
         if (selectedLanguage != currentLanguage()){
@@ -65,11 +59,9 @@ public final class Localization {
         }
     }
     
-    /**
-     Get default language.
-     
-     - returns: App's default language code.
-     */
+    /// Get default language.
+    ///
+    /// - Returns: App's default language code.
     public class func defaultLanguage() -> String {
         guard let preferredLanguage = Bundle.main.preferredLocalizations.first else {
             return LCLDefaultLanguage
@@ -78,28 +70,15 @@ public final class Localization {
         return self.availableLanguages().contains(preferredLanguage) ? preferredLanguage : LCLDefaultLanguage
     }
     
-    /**
-     Resets the current language to the default.
-     */
+    /// Resets the current language to the default.
     public class func resetCurrentLanguageToDefault() {
         setCurrentLanguage(self.defaultLanguage())
     }
     
-    /**
-     Get the current language's display name for a language.
-     
-     - Parameter language: Desired language.
-     
-     - Returns: The localized string.
-     */
-    
-    /**
-     Get the current language's display name for a language.
-     
-     - parameter language: String language code.
-     
-     - returns: The display name specified language.
-     */
+    /// Get the current language's display name for a language.
+    ///
+    /// - Parameter language: Language code.
+    /// - Returns: The display name of the specified language.
     public class func displayNameForLanguage(language: String) -> String? {
         let locale = NSLocale(localeIdentifier: currentLanguage())
         
